@@ -9,10 +9,9 @@ def item_in_common(list1, list2):
 
     return False
 
-
 list1 = [1,3,5]
-list2 = [2,4,6]
+list2 = [2,4,5]
 
 
 print(item_in_common(list1, list2))
-
+# since 5 is in both lists, it should return True
