@@ -218,7 +218,7 @@ def find_duplicates(nums):
 
 '''
 '''
-MY SOLUTION:
+MY EXTRA SOLUTION:
 
 def find_duplicates(nums):
     my_dict = {}
