@@ -5746,10 +5746,10 @@ class LinkedList:
             temp = temp.next
         self.tail      = prev
         self.tail.next = None
-        self.length   -= 1
         if self.length == 0:
             self.head = None
             self.tail = None
+        self.length   -= 1
         return temp
 
     def prepend(self, value):
@@ -5764,7 +5764,36 @@ class LinkedList:
         return True
 
     def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        if self.length == 0:
+            self.tail = None
+        self.length -= 1
+        return temp
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+    
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+    
+    def insert(self, index, value):
         ...
+
+
+
 
 
 
@@ -5773,4 +5802,6 @@ ll.append(2)
 ll.append(1)
 ll.pop()
 ll.prepend(0)
+ll.pop_first()
+ll.set_value(0, 'A')
 ll.print_list()
