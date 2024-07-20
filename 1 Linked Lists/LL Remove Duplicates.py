@@ -106,7 +106,7 @@ class LinkedList:
         while current:
             if current.value in values:
                 previous.next = current.next
-                self.length += 1
+                self.length -= 1
             else:
                 values.add(current.value)
                 previous = current
