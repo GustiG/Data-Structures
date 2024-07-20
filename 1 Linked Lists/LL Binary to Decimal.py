@@ -19,7 +19,8 @@ multiplied by 2 raised to the power equivalent to the position of
 the digit, counting from right to left starting from 0, 
 and all the results are summed together to get the decimal number.
 
-The binary_to_decimal method should return this calculated decimal number.
+The binary_to_decimal method should return this calculated 
+decimal number.
 
 
 
@@ -105,7 +106,7 @@ class LinkedList:
             cur = cur.next
         return num
     
-
+  
 
 # Test case 1: Binary number 110 = Decimal number 6
 linked_list = LinkedList(1)

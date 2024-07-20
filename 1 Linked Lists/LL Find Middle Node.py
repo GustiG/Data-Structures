@@ -63,8 +63,7 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         return slow
-    
-    
+
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
