@@ -715,7 +715,7 @@ print(bst.contains(9))
 ##############################################################
 ##############################################################
 ##############################################################
-
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -766,7 +766,57 @@ bst.insert(1)
 
 print(bst.root.left.left.value)
 print(bst.contains(1))
+'''
+##############################################################
+##############################################################
+##############################################################
 
-##############################################################
-##############################################################
-##############################################################
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left  = None
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, value):
+        new_node = Node(value)
+        if not self.root:
+            self.root = new_node
+            return True
+        temp = self.root
+        while True:
+            if new_node.value == temp.value:
+                return False
+            elif new_node.value < temp.value:
+                if not temp.left:
+                    temp.left = new_node
+                    return True
+                temp = temp.left
+            else:
+                if not temp.right:
+                    temp.right = new_node
+                    return True
+                temp = temp.right
+
+    def contains(self, value):
+        temp = self.root
+        while temp:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False
+    
+bst = BinarySearchTree()
+bst.insert(3)
+bst.insert(5)
+bst.insert(2)
+bst.insert(8)
+print(bst.root.right.right.value)
+print(bst.contains(8))
