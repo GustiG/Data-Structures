@@ -187,7 +187,6 @@ class LinkedList:
         self.head   = dummy1.next
 
 
-
 #  +=====================================================+
 #  |                                                     |
 #  |          THE TEST CODE BELOW WILL PRINT             |

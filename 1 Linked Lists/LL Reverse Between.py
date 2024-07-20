@@ -134,7 +134,7 @@ class LinkedList:
     #####################################
 
     def reverse_between(self, start_index, end_index):
-        if self.length < 2:
+        if self.length <= 1:
             return
         dummy = Node(0)
         dummy.next = self.head
@@ -151,7 +151,7 @@ class LinkedList:
             previous.next     = node_to_move
         
         self.head = dummy.next
-    
+
 
 
 linked_list = LinkedList(1)
