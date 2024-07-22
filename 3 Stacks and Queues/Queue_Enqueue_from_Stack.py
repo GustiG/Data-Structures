@@ -49,8 +49,6 @@ class MyQueue:
         return first
 
 
-    
-
     def peek(self):
         return self.stack1[-1]
 

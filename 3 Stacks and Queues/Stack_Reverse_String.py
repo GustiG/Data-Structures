@@ -48,7 +48,6 @@ def reverse_string(my_string):
 
 
 
-
 my_string = 'hello'
 
 print ( reverse_string(my_string) )
