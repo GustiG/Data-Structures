@@ -154,6 +154,7 @@ class LinkedList:
 
 
 
+
 linked_list = LinkedList(1)
 linked_list.append(2)
 linked_list.append(3)
