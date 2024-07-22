@@ -93,28 +93,27 @@ class DoublyLinkedList:
     ################################
 
     def swap_pairs(self):
-        dummy      = Node(0)
-        dummy.next = self.head
-        previous   = dummy
+        dummy_node      = Node(0)
+        dummy_node.next = self.head
+        previous_node   = dummy_node
 
         while self.head and self.head.next:
-            first  = self.head
-            second = self.head.next
+            first_node  = self.head
+            second_node = self.head.next
 
-            previous.next = second
-            first.next    = second.next
-            second.next   = first
-            second.prev   = previous
-            first.prev    = second
+            previous_node.next = second_node
+            first_node.next    = second_node.next
+            second_node.next   = first_node
+            second_node.prev   = previous_node
+            first_node.prev    = second_node
 
-            if first.next:
-                first.next.prev = first
+            if first_node.next:
+                first_node.next.prev = first_node
             
-            self.head = first.next
-            previous = first
-        
-        self.head = dummy.next
-        
+            self.head     = first_node.next
+            previous_node = first_node
+
+        self.head = dummy_node.next
         if self.head:
             self.head.prev = None
 
