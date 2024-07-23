@@ -75,19 +75,16 @@ so the function returns an empty list [].
 #                             #
 ###############################
 def two_sum(nums, target):
-    table = {}
-    current = 0
-
-    for i in nums:
-        current = i
+    h_table = {}
+    for i, current in enumerate(nums):
         result = target - current
-        if result in table:
-            return [table[result], i]
+        if result in h_table:
+            return [h_table[result], i]
         else:
-            table[i] = i
+            h_table[current] = i
     return []
 
-    
+
     
 print(two_sum([5, 1, 7, 2, 9, 3], 10))  
 print(two_sum([4, 2, 11, 7, 6, 3], 9))  
