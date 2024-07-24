@@ -27,15 +27,14 @@ a group of anagrams according to the above requirements.
 #                                    #
 ######################################
 def group_anagrams(strings):
-     dic = {}
-     for origin in strings:
-          canonical = ''.join(sorted(origin))
-          if canonical in dic:
-               dic[canonical].append(origin) # adds origin as value
-          else:
-               dic[canonical] = [origin]     # creates new key
-     return list(dic.values())  # returns all the original values
-
+    anagrams = {}
+    for word in strings:
+        sorted_word = ''.join(sorted(word))
+        if sorted_word in anagrams:
+            anagrams[sorted_word].append(word) 
+        else:
+            anagrams[sorted_word] = [word] # Initialize with a list containing the word
+    return list(anagrams.values())         # Return the grouped anagrams
 
 
 print("1st set:")
@@ -145,7 +144,19 @@ def group_anagrams(strings):
  
     # convert the hash table to a list of lists
     return list(anagram_groups.values())    
-    
-    
-    
+     
+'''
+
+'''
+PREVIOUS SOLUTION:
+
+     dic = {}
+     for origin in strings:
+          canonical = ''.join(sorted(origin))
+          if canonical in dic:
+               dic[canonical].append(origin) # adds origin as value
+          else:
+               dic[canonical] = [origin]     # creates new key
+     return list(dic.values())  # returns all the original values
+
 '''
