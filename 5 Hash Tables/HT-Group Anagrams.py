@@ -31,10 +31,11 @@ def group_anagrams(strings):
     for word in strings:
         sorted_word = ''.join(sorted(word))
         if sorted_word in anagrams:
-            anagrams[sorted_word].append(word) 
+            anagrams[sorted_word].append(word)
         else:
-            anagrams[sorted_word] = [word] # Initialize with a list containing the word
-    return list(anagrams.values())         # Return the grouped anagrams
+            anagrams[sorted_word] = [word]
+    return list(anagrams.values())
+
 
 
 print("1st set:")
@@ -158,5 +159,17 @@ PREVIOUS SOLUTION:
           else:
                dic[canonical] = [origin]     # creates new key
      return list(dic.values())  # returns all the original values
+
+______________________________________________________________________________________________     
+REFACTORED SOLUTION:
+
+    anagrams = {}
+    for word in strings:
+        sorted_word = ''.join(sorted(word))
+        if sorted_word in anagrams:
+            anagrams[sorted_word].append(word) 
+        else:
+            anagrams[sorted_word] = [word] # Initialize with a list containing the word
+    return list(anagrams.values())         # Return the grouped anagrams
 
 '''
