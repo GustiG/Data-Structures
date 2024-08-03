@@ -99,13 +99,13 @@ class LinkedList:
     #######################################
 
     def binary_to_decimal(self):
-        num = 0
-        cur = self.head
-        while cur:
-            num = num * 2 + cur.value
-            cur = cur.next
-        return num
-    
+        position  = 0
+        current   = self.head
+        while current:
+            position  = position * 2 + current.value
+            current   = current.next
+        return position
+
       
   
 # Test case 1: Binary number 110 = Decimal number 6
