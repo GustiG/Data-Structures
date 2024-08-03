@@ -5705,7 +5705,7 @@ ll.print_list()
 #################################################################
 #################################################################
 #################################################################
-
+'''
 class Node:
     def __init__(self, value):
         self.value  = value
@@ -5846,4 +5846,88 @@ ll.set_value(0, 'A')
 ll.insert(1, 0)
 ll.remove(1)
 ll.reverse()
+ll.print_list()
+'''
+#################################################################
+#################################################################
+#################################################################
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
+
+
+class LinkedList:
+    def __init__(self, value):
+        new_node    = Node(value)
+        self.head   = new_node
+        self.tail   = new_node
+        self.length = 1
+
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(f'{temp.value}', end=" ")
+            temp = temp.next
+    
+    def append(self, value):
+        new_node = Node(value)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail      = new_node
+        self.length += 1
+        return True
+    
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        prev = None
+        while temp.next:
+            prev = temp
+            temp = temp.next
+        self.tail      = prev
+        self.tail.next = None
+        self.length   -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
+
+    def prepend(self, value):
+        new_node = Node(value)    
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head     = new_node
+        self.length += 1
+        return True
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp         = self.head
+        self.head    = self.head.next
+        temp.next    = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
+
+    def get(self, index):
+        ...
+
+
+ll = LinkedList(1)
+ll.append(2)
+ll.append(3)
+ll.pop()
+ll.prepend(0)
+ll.pop_first()
 ll.print_list()
