@@ -58,6 +58,8 @@ class LinkedList:
     ######################################
 
     def find_middle_node(self):
+        if not self.head.next:
+            return self.head
         slow = fast = self.head
         while fast and fast.next:
             slow = slow.next
