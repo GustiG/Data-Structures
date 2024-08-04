@@ -38,12 +38,12 @@ class Stack:
 #########################################
 
 def reverse_string(my_string):
-    stack = Stack()    
-    rev_str = ""
-    for char in my_string:
-        stack.push(char)
-    while not stack.is_empty():
-        rev_str += stack.pop()
+    my_stack = Stack()
+    rev_str  = ""
+    for letter in my_string:
+        my_stack.push(letter)
+    while not my_stack.is_empty():
+        rev_str += my_stack.pop()
     return rev_str
 
 
