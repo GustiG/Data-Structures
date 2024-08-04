@@ -37,16 +37,14 @@ class DoublyLinkedList:
     #                                   #
     #####################################
     
-    def swap_first_last(self):
+    def swap_first_last(self):    
         if not self.head or self.head == self.tail:
             return
         self.head.value, self.tail.value = \
         self.tail.value, self.head.value
 
-        
     
     
-
 my_doubly_linked_list = DoublyLinkedList(1)
 my_doubly_linked_list.append(2)
 my_doubly_linked_list.append(3)
