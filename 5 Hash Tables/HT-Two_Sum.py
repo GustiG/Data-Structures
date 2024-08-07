@@ -83,7 +83,7 @@ def two_sum(nums, target):
         else:
             hash_map[current] = index
     return []
-
+    
     
 print(two_sum([5, 1, 7, 2, 9, 3], 10))  
 print(two_sum([4, 2, 11, 7, 6, 3], 9))  
