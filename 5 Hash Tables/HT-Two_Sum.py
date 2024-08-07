@@ -3,7 +3,7 @@ HT: Two Sum ( ** Interview Question)
 two_sum()
 
 Problem:
-Given an array of integers nums and a target integer target, 
+Given an array of integers 'nums' and a target integer 'target', 
 find the indices of two numbers in the array that add up to 
 the target.
 
@@ -75,13 +75,13 @@ so the function returns an empty list [].
 #                             #
 ###############################
 def two_sum(nums, target):
-    h_table = {}
-    for i, current in enumerate(nums):
-        result = target - current
-        if result in h_table:
-            return [h_table[result], i]
+    h_table = {}    # key = num : value = num[index]
+    for i, current in enumerate(nums):  # get both index and value
+        result = target - current       # find the missing value
+        if result in h_table:           # if the value is present
+            return [h_table[result], i] # return it's index
         else:
-            h_table[current] = i
+            h_table[current] = i       # add the index to the table
     return []
 
 
