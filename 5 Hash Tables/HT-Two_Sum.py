@@ -75,15 +75,14 @@ so the function returns an empty list [].
 #                             #
 ###############################
 def two_sum(nums, target):
-    h_table = {}    # key = num : value = num[index]
-    for i, current in enumerate(nums):  # get both index and value
-        result = target - current       # find the missing value
-        if result in h_table:           # if the value is present
-            return [h_table[result], i] # return it's index
+    hash_map = {}
+    for index, current in enumerate(nums):
+        result = target - current
+        if result in hash_map:
+            return [hash_map[result], index]
         else:
-            h_table[current] = i       # add the index to the table
+            hash_map[current] = index
     return []
-
 
     
 print(two_sum([5, 1, 7, 2, 9, 3], 10))  
@@ -180,5 +179,19 @@ MY first SOLUTION only returns the values, not indexes as required:
         else:
             table[i] = current  # or = i
     return []
+
+"""
+
+"""
+SOLUTION WITH COMMENTS:
+
+    h_table = {}            # key = num : value = num[index]
+    for i, current in enumerate(nums):  # get both index and value
+        result = target - current       # find the missing value
+        if result in h_table:           # if the value is present
+            return [h_table[result], i] # return it's index
+        else:
+            h_table[current] = i       # add the index to the table
+    return [] # return an empty list when the target isn't matched 
 
 """
