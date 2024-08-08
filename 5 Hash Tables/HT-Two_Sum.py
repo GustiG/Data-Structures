@@ -75,13 +75,13 @@ so the function returns an empty list [].
 #                             #
 ###############################
 def two_sum(nums, target):
-    hash_map = {}
+    dic = {}
     for index, current in enumerate(nums):
         result = target - current
-        if result in hash_map:
-            return [hash_map[result], index]
+        if result in dic:
+            return [dic[result], index]
         else:
-            hash_map[current] = index
+            dic[current] = index
     return []
 
 
