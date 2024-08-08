@@ -35,7 +35,6 @@ def group_anagrams(strings):
         else:
             anagrams[sorted_word] = [word]
     return list(anagrams.values())
-    # return anagrams   -- see how the dictionary was creted
 
 
 
@@ -172,5 +171,6 @@ REFACTORED SOLUTION:
         else:
             anagrams[sorted_word] = [word] # Initialize with a list containing the word
     return list(anagrams.values())         # Return the grouped anagrams
+    # return anagrams   -- see how the dictionary was creted
 
 '''
