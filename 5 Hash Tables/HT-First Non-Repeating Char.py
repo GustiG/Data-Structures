@@ -22,13 +22,13 @@ is the first non-repeating character in the string.
 #                         #
 ###########################
 def first_non_repeating_char(string):
-    char_counts = {}
-    for char in string:
-        char_counts[char] = char_counts.get(char, 0) + 1
+    char_count = {}
+    for letter in string:
+        char_count[letter] = char_count.get(letter, 0) + 1
     
-    for char in string:
-        if char_counts[char] == 1:
-            return char
+    for letter in string:
+        if char_count[letter] == 1:
+            return letter
     
     return None
 
