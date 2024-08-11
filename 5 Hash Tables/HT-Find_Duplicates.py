@@ -55,15 +55,15 @@ function returns an empty list [].
     
 
 def find_duplicates(nums):
-    num_counts = {}
+    nums_count = {}
     for num in nums:
-        num_counts[num] = num_counts.get(num, 0) + 1
- 
+        nums_count[num] = nums_count.get(num, 0) + 1
+    
     duplicates = []
-    for num, count in num_counts.items():
+    for num, count in nums_count.items():
         if count > 1:
             duplicates.append(num)
- 
+    
     return duplicates
 
 
