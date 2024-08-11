@@ -113,18 +113,6 @@ def subarray_sum(nums, target):
 
 
 
-nums = [1, 3, 5]
-target = 5
-print ( subarray_sum(nums, target) )
-
-nums = [2, 4, 6]
-target = 6
-print ( subarray_sum(nums, target) )
-
-nums = [1, 2, 3, 4, 5]
-target = 3
-print ( subarray_sum(nums, target) )
-
 nums = [1, 2, 3, 4, 5]
 target = 9
 print ( subarray_sum(nums, target) )
@@ -319,6 +307,21 @@ def subarray_sum(nums, target):
  
     # If we've gone through the entire list and didn't find any
     # subarray with a sum equal to the target, we return an empty list.
+    return []
+
+'''
+
+'''
+MY SOLUTION:
+
+    sum_index   = {0:-1} # key = sum of elements : value = index
+    current_sum = 0
+    for i, num in enumerate(nums):
+        current_sum += num
+        if (current_sum - target) in sum_index:
+            return [sum_index[current_sum - target] + 1, i]
+        else:
+            sum_index[current_sum] = i
     return []
 
 '''
