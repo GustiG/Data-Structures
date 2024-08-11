@@ -101,13 +101,12 @@ to target is found, return an empty list []
 #                                  #
 ####################################
 def subarray_sum(nums, target):
-    sum_index   = {0: -1}
+    sum_index   = {0:-1}  # key = sum of elements, value = index
     current_sum = 0
-    for i, num in enumerate(nums):
-        current_sum = current_sum + num
-        if (current_sum - target) in sum_index:
-            starting_index = sum_index[current_sum - target] + 1
-            return [starting_index, i]
+    for i, val in enumerate(nums):
+        current_sum += val
+        if current_sum - target in sum_index:
+            return [sum_index[current_sum - target] + 1, i]
         else:
             sum_index[current_sum] = i
     return []
