@@ -107,6 +107,7 @@ def subarray_sum(nums, target):
         current_sum += num
         if (current_sum - target) in sum_index:
             return [sum_index[current_sum - target] + 1, i]
+            # return +1 value  since the index starts at -1
         else:
             sum_index[current_sum] = i
     return []
