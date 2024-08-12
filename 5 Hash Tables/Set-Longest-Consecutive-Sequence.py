@@ -63,6 +63,7 @@ def longest_consecutive_sequence(arr):
                 length   += 1
                 next_num += 1
             longest = max(length, longest)
+            # max because length could be reset back to 1
     return longest
 
 
