@@ -35,7 +35,7 @@ def group_anagrams(strings):
         else:
             anagrams[sorted_word] = [word]
     return list(anagrams.values())
-
+    
 
 
 print("1st set:")
