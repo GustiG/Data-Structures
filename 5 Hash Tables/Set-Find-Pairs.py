@@ -97,8 +97,8 @@ def find_pairs(arr1, arr2, target):
         if complement in set1:
             pairs.append((complement, num))
     return pairs
-
         
+
 
 arr1 = [1, 2, 3, 4, 5]
 arr2 = [2, 4, 6, 8, 10]
