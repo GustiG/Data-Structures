@@ -75,13 +75,13 @@ so the function returns an empty list [].
 #                             #
 ###############################
 def two_sum(nums, target):
-    dic = {}
-    for index, current in enumerate(nums):
+    index_value = {}
+    for i, current in enumerate(nums):
         result = target - current
-        if result in dic:
-            return [dic[result], index]
+        if result in index_value:
+            return [index_value[result], i]
         else:
-            dic[current] = index
+            index_value[current] = i
     return []
 
 
