@@ -19,7 +19,8 @@ def has_unique_chars(string):
     for char in string:
         if char in unique:
             return False
-        unique.add(char)
+        else:
+            unique.add(char)
     return True
 
 
