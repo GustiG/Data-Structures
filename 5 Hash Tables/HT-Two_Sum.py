@@ -76,12 +76,12 @@ so the function returns an empty list [].
 ###############################
 def two_sum(nums, target):
     index_value = {}
-    for i, current in enumerate(nums):
-        result = target - current
+    for i, num in enumerate(nums):
+        result = target - num
         if result in index_value:
             return [index_value[result], i]
         else:
-            index_value[current] = i
+            index_value[num] = i
     return []
 
 
