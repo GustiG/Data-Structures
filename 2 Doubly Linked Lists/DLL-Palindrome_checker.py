@@ -49,6 +49,7 @@ class DoublyLinkedList:
             backward_node = backward_node.prev
         return True  
 
+    
 
 my_dll_1 = DoublyLinkedList(1)
 my_dll_1.append(2)
