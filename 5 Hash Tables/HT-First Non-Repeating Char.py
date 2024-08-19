@@ -31,7 +31,7 @@ def first_non_repeating_char(string):
             return letter
     
     return None
-
+    
 
 print( first_non_repeating_char('leetcode') )
 
@@ -111,3 +111,18 @@ def first_non_repeating_char(string):
     # return None if no non-repeating character is found
     return None
 '''
+
+"""
+ALT SOULUTION:
+
+    char_count = {}
+    for char in string:
+        char_count[char] = char_count.get(char, 0) + 1
+    
+    for char, count in char_count.items():
+        if count == 1:
+            return char
+    
+    return None
+
+"""
