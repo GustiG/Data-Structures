@@ -31,7 +31,8 @@ def first_non_repeating_char(string):
             return letter
     
     return None
-    
+
+
 
 print( first_non_repeating_char('leetcode') )
 
