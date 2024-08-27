@@ -2395,8 +2395,6 @@ class HashTable:
                     all_keys.append(self.data_map[i][j][0])
         return all_keys
 
-        
-
 
 
 my_hash_table = HashTable()
