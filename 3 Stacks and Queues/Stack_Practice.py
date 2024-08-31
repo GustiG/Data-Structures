@@ -431,7 +431,7 @@ stk.print_stack()
 #################################################################
 #################################################################
 #################################################################
-
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -478,5 +478,59 @@ stk.push('C')
 stk.push('D')
 stk.pop()
 stk.print_stack()
+'''
+#################################################################
+#################################################################
+#################################################################
+#'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
 
-    
+
+class Stack:
+    def __init__(self, value):
+        newNode     = Node(value)
+        self.top    = newNode
+        self.height = 1
+
+
+    def printStack(self):
+        temp = self.top
+        while temp:
+            print(f'{temp.value}')
+            temp = temp.next
+
+
+    def push(self, value):
+        newNode = Node(value)
+        if not self.top:
+            self.top = newNode
+        else:
+            newNode.next = self.top
+            self.top = newNode
+        self.height += 1
+     
+
+    def pop(self):
+        if not self.top:
+            return None
+        temp = self.top
+        self.top = self.top.next
+        temp.next = None
+        self.height -= 1
+        return temp
+
+
+
+stk = Stack('A')
+stk.push('B')
+stk.push('C')
+stk.push('D')
+stk.pop()
+stk.printStack()
+#'''
+#################################################################
+#################################################################
+#################################################################
