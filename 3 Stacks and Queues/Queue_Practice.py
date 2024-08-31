@@ -529,7 +529,7 @@ q.print_queue()
 ###############################################################
 ###############################################################
 ###############################################################
-
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -579,3 +579,61 @@ q.enqueue(3)
 q.enqueue(4)
 q.dequeue()
 q.print_queue()
+'''
+###############################################################
+###############################################################
+###############################################################
+#'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
+
+
+class Queue:
+    def __init__(self, value):
+        newNode     = Node(value)
+        self.first  = newNode
+        self.last   = newNode
+        self.length = 1
+
+
+    def printQueue(self):
+        temp = self.first
+        while temp:
+            print(f'{temp.value}', end=" ")
+            temp = temp.next
+    
+
+    def enqueue(self, value):
+        newNode = Node(value)
+        if not self.first:
+            self.first = newNode
+            self.last = newNode
+        else:
+            self.last.next = newNode
+            self.last = newNode
+        self.length += 1
+
+
+    def dequeue(self):
+        if self.length == 0:
+            return None
+        temp = self.first
+        self.first = self.first.next
+        temp.next = None
+        if self.length == 1:
+            self.first = None
+            self.last = None
+        self.length -= 1
+        return temp
+        
+
+
+q = Queue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
+q.dequeue()
+q.printQueue()
+#'''
