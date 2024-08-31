@@ -2357,7 +2357,7 @@ print(my_hash_table.keys())
 ################################################################
 ################################################################
 ################################################################
-
+'''
 class HashTable:
     def __init__(self, size = 7):
         self.data_map = [None] * size
@@ -2405,6 +2405,64 @@ my_hash_table.print_table()
 print(my_hash_table.get_item('washers'))
 print(my_hash_table.get_item('Washers'))
 print(my_hash_table.keys())
+'''
+################################################################
+################################################################
+################################################################
+#'''
+class HashTable:
+    def __init__(self, size = 7):
+        self.dataMap = [None] * size
+    
+
+    def __hash(self, key):
+        myHash = 0
+        for letter in key:
+            myHash = \
+            (myHash + ord(letter) * 23) % len(self.dataMap)
+        return myHash
+    
+
+    def printTable(self):
+        for i, val in enumerate(self.dataMap):
+            print(i, ": ", val)
+
+            
+    def setItem(self, key, value):
+        index = self.__hash(key)
+        if self.dataMap[index] == None:
+            self.dataMap[index] = []
+        self.dataMap[index].append([key, value])
+    
+
+    def getItem(self, key):
+        index = self.__hash(key)
+        if self.dataMap[index]:
+            for i in range(len(self.dataMap)): 
+                if self.dataMap[index][i][0] == key:
+                    return self.dataMap[index][i][1]
+        return None
+
+
+    def keys(self):
+        allKeys = []
+        for i in range(len(self.dataMap)):
+            if self.dataMap[i]:
+                for j in range(len(self.dataMap[i])):
+                    allKeys.append(self.dataMap[i][j][0])
+        return allKeys
+
+
+my_hash_table = HashTable()
+my_hash_table.setItem('bolts', 1000)
+my_hash_table.setItem('washers', 50)
+my_hash_table.setItem('lumber', 70)
+my_hash_table.printTable()
+print(my_hash_table.getItem('washers'))
+print(my_hash_table.getItem('Washers'))
+print(my_hash_table.keys())
+
+#'''
 ################################################################
 ################################################################
 ################################################################
