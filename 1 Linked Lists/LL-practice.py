@@ -6136,7 +6136,7 @@ ll.print_list()
 #################################################################
 #################################################################
 #################################################################
-
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -6274,3 +6274,163 @@ ll.insert(1, 2)
 ll.remove(1)
 ll.reverse()
 ll.print_list()
+'''
+#################################################################
+#################################################################
+#################################################################
+#'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next  = None
+
+
+class LinkedList:
+    def __init__(self, value):
+        newNode     = Node(value)
+        self.head   = newNode
+        self.tail   = newNode
+        self.length = 1
+    
+
+    def printList(self):
+        temp = self.head
+        while temp:
+            print(f'{temp.value}', end=" ")
+            temp = temp.next
+    
+
+    def append(self, value):
+        newNode = Node(value)
+        if not self.head:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
+        self.length += 1
+        return True
+    
+
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        prev = None
+        while temp.next:
+            prev = temp
+            temp = temp.next
+        self.tail = prev
+        self.tail.next = None
+        if self.length == 0:
+            self.head = None
+        self.length -= 1
+        return temp
+
+
+    def prepend(self, value):
+        newNode = Node(value)
+        if not self.head:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.length += 1
+        return True
+
+
+    def popFirst(self):
+        if self.length == 0:
+           return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        self.length -= 1
+        return temp
+    
+
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
+
+    def setValue(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        
+        newNode = Node(value)
+        prev = self.get(index - 1)
+        newNode.next = prev.next
+        prev.next = newNode
+        self.length += 1
+        return True
+
+
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.popFirst()
+        if index == self.length - 1:
+            return self.pop()
+        
+        prev = self.get(index - 1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp
+
+
+    def reverse(self):
+        temp      = self.head
+        self.head = self.tail
+        self.tail = temp
+
+        before = None
+        after  = temp.next
+        while temp:
+            after     = temp.next
+            temp.next = before
+            before    = temp
+            temp      = after
+
+        
+    
+ll = LinkedList(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+ll.pop()
+ll.prepend(0)
+ll.popFirst()
+ll.setValue(1, 'X')
+ll.insert(1, 2)
+ll.remove(1)
+ll.reverse()
+ll.printList()
+# print(ll.get(1))
+#'''
+#################################################################
+#################################################################
+#################################################################
