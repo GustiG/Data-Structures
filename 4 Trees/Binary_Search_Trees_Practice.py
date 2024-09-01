@@ -1859,10 +1859,12 @@ bst.insert(5)
 print(bst.root.left.left.left.value)
 print(bst.contains(5))
 '''
+
 ##############################################################
 ##############################################################
 ##############################################################
-# '''
+
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -1874,6 +1876,7 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
     
+
     def insert(self, value):
         new_node = Node(value)
         if not self.root:
@@ -1895,6 +1898,7 @@ class BinarySearchTree:
                 else:
                     temp = temp.right
         
+
     def contains(self, value):
         temp = self.root
         while temp:
@@ -1916,7 +1920,71 @@ bst.insert(1)
 bst.insert(5)
 print(bst.root.left.left.left.value)
 print(bst.contains(5))
-# '''
+'''
+
+##############################################################
+##############################################################
+##############################################################
+
+#'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+
+    def insert(self, value):
+        newNode = Node(value)
+        if not self.root:
+            self.root = newNode
+            return True
+        temp = self.root
+        while True:
+            if newNode.value == temp.value:
+                return False
+            elif newNode.value < temp.value:
+                if not temp.left:
+                    temp.left = newNode
+                    return True
+                else:
+                    temp = temp.left
+            else:
+                if not temp.right:
+                    temp.right = newNode
+                    return True
+                else:
+                    temp = temp.right
+            
+
+    def contains(self, value):
+        temp = self.root
+        while temp:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False
+
+
+
+bst = BinarySearchTree()
+bst.insert(4)
+bst.insert(3)
+bst.insert(2)
+bst.insert(1)
+bst.insert(5)
+print(bst.root.left.left.left.value)
+print(bst.contains(5))
+#'''
+
 ##############################################################
 ##############################################################
 ##############################################################
