@@ -1,4 +1,19 @@
         # Graph implementation using Adjacency List
+
+# Space complexity: O (|V| + |E|) 
+#                   number of vertices + number of edges
+#
+# Time Complexity:
+    # Adding a new vertex (node): O(1)
+    # Adding a new edge (connection): O(1)
+    # Removing an edge: O(|E|)
+#                       has to iterate through the 
+#                       list of edges associated
+#                       with the respective vertices
+    # Removing a vertex: O(|V| + |E|)
+#                       searches through all the vertices 
+#                       to also remove the edges 
+
 '''
 class Graph:
     def __init__(self):
