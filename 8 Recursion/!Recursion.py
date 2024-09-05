@@ -71,6 +71,7 @@ def print_pattern(n):
 
 print_pattern(4)
 '''
+
 ##############################################################
 '''
 def addDigits(n):
@@ -85,6 +86,7 @@ def addDigits(n):
 
 print(addDigits(1314))
 '''
+
 ##############################################################
 '''
 def pp(n):
@@ -115,6 +117,7 @@ def factorial(n):
 
 print(factorial(4))
 '''
+
 ##############################################################
 '''
 def sayHello(n):
@@ -137,3 +140,52 @@ def numSum(n):
     
 print(numSum(4))
 '''
+
+##############################################################
+'''
+def pp(n):
+    if n == 0: return
+
+    pp(n - 1)
+    for i in range(n):
+        print(i + 1, end=" ")
+    print()
+
+
+pp(4)
+'''
+
+##############################################################
+'''
+def pp(n):
+    if n == 0: return
+
+    for i in range(n):
+        print(i + 1, end=" ")
+    print()
+
+    pp(n - 1)
+
+
+pp(4)
+'''
+
+##############################################################
+
+def pp(n):
+    if n == 1:
+        print(1)
+        return
+
+    for i in range(n):
+        print(i + 1, end=" ")
+    print()
+
+    pp(n - 1)
+
+    for i in range(n):
+        print(i + 1, end=" ")
+    print()
+
+
+pp(4)
