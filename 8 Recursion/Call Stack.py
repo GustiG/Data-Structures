@@ -2,7 +2,6 @@ def funcThree():
     print("3: starting funcThree")
     print("3: I'm function three and I'm done running")
 
-
 def funcTwo():
     print("2: starting funcTwo")
     funcThree()
