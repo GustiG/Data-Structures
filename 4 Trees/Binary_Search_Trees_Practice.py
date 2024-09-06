@@ -1989,7 +1989,7 @@ print(bst.contains(5))
 ##############################################################
 ##############################################################
 
-#'''
+'''
 
 class Node:
     def __init__(self, value):
@@ -2049,8 +2049,94 @@ bst.insert(1)
 bst.insert(5)
 print(bst.root.left.left.left.value)
 print(bst.contains(5))
-#'''
+'''
 
+##############################################################
+##############################################################
+##############################################################
+
+#''' STARTING THE RECURSIVE BINARY SEARCH TREE IMPLEMENTATION
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left  = None
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+
+    def insert(self, value):
+        new_node = Node(value)
+        if not self.root:
+            self.root = new_node
+            return True
+        temp = self.root
+
+        while True:
+            if new_node.value == temp.value:
+                return False
+            elif new_node.value < temp.value:
+                if not temp.left:
+                    temp.left = new_node
+                    return True
+                else:
+                    temp = temp.left
+            else:
+                if not temp.right:
+                    temp.right = new_node
+                    return True
+                else:
+                    temp = temp.right
+
+
+    def contains(self, value):
+        temp = self.root
+        while temp:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False
+
+
+    def __r_contains(self, current_node, value):
+        if current_node == None:
+            return False
+        if value == current_node.value:
+            return True
+        
+        if value < current_node.value:
+            return self.__r_contains(current_node.left, value)
+        if value > current_node.value:
+            return self.__r_contains(current_node.right, value)
+        
+
+    def r_contains(self, value):
+        return self.__r_contains(self.root, value)
+    
+
+
+my_tree = BinarySearchTree()
+my_tree.insert(47)
+my_tree.insert(21)
+my_tree.insert(76)
+my_tree.insert(18)
+my_tree.insert(27)
+my_tree.insert(25)
+my_tree.insert(82)
+
+print("BST Contains 27:")
+print(my_tree.r_contains(27))
+
+print("\nBST Contains 22:")
+print(my_tree.r_contains(22))
+
+#'''
 ##############################################################
 ##############################################################
 ##############################################################
