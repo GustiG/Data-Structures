@@ -249,11 +249,17 @@ class BinarySearchTree:
             elif current_node.right == None:
                 current_node = current_node.left
             else:
-                ...        
-
+                sub_tree_min = self.min_value(current_node.right)        
+                current_node.value = sub_tree_min
+                current_node.right =\
+                self.__delete_node(current_node.right, sub_tree_min)
         return current_node
 
 
+    def delete_node(self, value):
+        self.root = self.__delete_node(self.root, value)
+
+    
     def min_value(self, current_node):
         while current_node.left is not None:
             current_node = current_node.left
@@ -272,6 +278,7 @@ my_tree.r_insert(27)
 my_tree.r_insert(52)
 my_tree.r_insert(82)
 
-print(my_tree.min_value(my_tree.root))
-print(my_tree.min_value(my_tree.root.right))
+print(my_tree.root.left.right.value)
+my_tree.delete_node(21)
+print(my_tree.root.left.value)
 #'''
