@@ -2463,10 +2463,12 @@ print(my_hash_table.getItem('Washers'))
 print(my_hash_table.keys())
 
 '''
+
 ################################################################
 ################################################################
 ################################################################
-#'''
+
+'''
 
 class HashTable:
     def __init__(self, size = 7):
@@ -2510,6 +2512,65 @@ class HashTable:
                     allKeys.append(self.dataMap[i][j][0])
         return allKeys
     
+
+
+
+my_hash_table = HashTable()
+my_hash_table.setItem('bolts', 1000)
+my_hash_table.setItem('washers', 50)
+my_hash_table.setItem('lumber', 70)
+my_hash_table.printTable()
+print(my_hash_table.getItem('washers'))
+print(my_hash_table.getItem('Washers'))
+print(my_hash_table.keys())
+'''
+
+################################################################
+################################################################
+################################################################
+
+#'''
+class HashTable:
+    def __init__(self, size = 7):
+        self.data_map = [None] * size
+
+
+    def __hash(self, key):
+        my_hash = 0
+        for letter in key:
+            my_hash =\
+              (my_hash + ord(letter) * 23) % len(self.data_map)
+        return my_hash
+    
+
+    def printTable(self):
+        for i, val in enumerate(self.data_map):
+            print(i, ":", val)
+
+    
+    def setItem(self, key, value):
+        index = self.__hash(key)     
+        if self.data_map[index] == None:
+            self.data_map[index] = []
+        self.data_map[index].append([key, value]) 
+
+
+    def getItem(self, key):
+        index = self.__hash(key)    
+        if self.data_map[index]:
+            for i in range(len(self.data_map[index])):
+                if self.data_map[index][i][0] == key:
+                    return self.data_map[index][i][1]
+        return None
+    
+
+    def keys(self):
+        all_keys = []
+        for i in range(len(self.data_map)):
+            if self.data_map[i]:
+                for j in range(len(self.data_map[i])):
+                    all_keys.append(self.data_map[i][j][0])        
+        return all_keys
 
 
 
