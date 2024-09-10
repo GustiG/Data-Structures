@@ -114,15 +114,15 @@ class BinarySearchTree:
     def __sorted_list_to_bst(self, nums, left, right):
         if left > right:
             return None
-            
+        
         mid = (left + right) // 2
         current = Node(nums[mid])
-        
+
         current.left =\
         self.__sorted_list_to_bst(nums, left, mid - 1)
         current.right =\
         self.__sorted_list_to_bst(nums, mid + 1, right)
-        
+
         return current
 
 
