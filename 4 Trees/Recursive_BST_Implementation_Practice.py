@@ -1094,7 +1094,23 @@ class BinarySearchTree:
         return current_node.value
 
 
+    def BFS(self):
+        current_node = self.root
+        queue = []
+        result = []
+        queue.append(current_node)
 
+        while len(queue) > 0:
+            current_node = queue.pop(0)
+            result.append(current_node.value)
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+        return result
+
+
+        
 my_tree = BinarySearchTree()
 my_tree.r_insert(47)
 my_tree.r_insert(21)
@@ -1107,4 +1123,5 @@ my_tree.r_insert(82)
 print(my_tree.root.left.value)
 my_tree.delete_node(21)
 print(my_tree.root.left.value)
+print(my_tree.BFS())
 #'''
