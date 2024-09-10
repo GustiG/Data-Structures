@@ -1228,7 +1228,7 @@ class BinarySearchTree:
             if node.right:
                 queue.append(node.right)
         return result
-    
+
 
 
 my_tree = BinarySearchTree()
