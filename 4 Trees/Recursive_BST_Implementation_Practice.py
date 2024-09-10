@@ -1110,7 +1110,7 @@ class BinarySearchTree:
         return result
 
 
-        
+
 my_tree = BinarySearchTree()
 my_tree.r_insert(47)
 my_tree.r_insert(21)
