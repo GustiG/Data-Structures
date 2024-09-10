@@ -80,13 +80,15 @@ class BinarySearchTree:
     #   |   swap of the children.                           |
     #   +===================================================+
     def __invert_tree(self, node):
-        if not node: 
+        if not node:
             return None
-        temp = node.left 
+
+        temp = node.left
         node.left = self.__invert_tree(node.right)
         node.right = self.__invert_tree(temp)
-        return node
 
+        return node
+    
 
 #  +====================================================+  
 #  |  Test code below will print output to "User logs"  |
