@@ -1214,21 +1214,21 @@ class BinarySearchTree:
     
 
     def BFS(self):
-        current_node = self.root
+        node = self.root
         queue = []
-        queue.append(current_node)
+        queue.append(node)
         result = []
 
         while queue:
-            current_node = queue.pop(0)
-            result.append(current_node.value)
+            node = queue.pop(0)
+            result.append(node.value)
 
-            if current_node.left:
-                queue.append(current_node.left)
-            if current_node.right:
-                queue.append(current_node.right)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
         return result
-
+    
 
 
 my_tree = BinarySearchTree()
