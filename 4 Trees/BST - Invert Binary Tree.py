@@ -86,9 +86,9 @@ class BinarySearchTree:
         temp = node.left
         node.left = self.__invert_tree(node.right)
         node.right = self.__invert_tree(temp)
-
+        
         return node
-    
+
 
 
 #  +====================================================+  
