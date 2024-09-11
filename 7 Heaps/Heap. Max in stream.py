@@ -121,14 +121,15 @@ class MaxHeap:
 #                                          #
 ############################################
 def stream_max(nums):
-    max_heap = MaxHeap()
-    max_stream = []
+    my_heap = MaxHeap()
+    stream = []
 
     for num in nums:
-        max_heap.insert(num)
-        max_stream.append(max_heap.heap[0])
+        my_heap.insert(num)
+        stream.append(my_heap.heap[0])
+    
+    return stream
 
-    return max_stream
 
 
 test_cases = [
