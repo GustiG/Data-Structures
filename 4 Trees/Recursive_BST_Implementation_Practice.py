@@ -1474,6 +1474,42 @@ class BinarySearchTree:
         return result
 
 
+    def dfs_pre_order(self):
+        results = []
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
+
+
+    def dfs_post_order(self):
+        results = []
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            if current_node.right:
+                traverse(current_node.right)
+            results.append(current_node.value)
+        traverse(self.root)
+        return results
+    
+
+    def dfs_in_order(self):
+        results = []
+        def traverse(current_node):
+            if current_node.left:
+                traverse(current_node.left)
+            results.append(current_node.value)
+            if current_node.right:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
+    
+
 
 my_tree = BinarySearchTree()
 my_tree.r_insert(47)
@@ -1486,7 +1522,10 @@ my_tree.r_insert(82)
 
 print(my_tree.r_contains(47))
 print(my_tree.root.left.value)
+print(my_tree.BFS())
+print(my_tree.dfs_pre_order())
+print(my_tree.dfs_post_order())
+print(my_tree.dfs_in_order())
 my_tree.delete_node(21)
 print(my_tree.root.left.value)
-print(my_tree.BFS())
 #'''
