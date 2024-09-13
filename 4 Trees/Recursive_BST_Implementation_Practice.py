@@ -1459,7 +1459,7 @@ class BinarySearchTree:
     def BFS(self):
         node = self.root
         queue = []
-        queue.append(node)        
+        queue.append(node)
         result = []
 
         while len(queue) > 0:
@@ -1470,8 +1470,8 @@ class BinarySearchTree:
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
-        return result
     
+        return result
 
 
 
