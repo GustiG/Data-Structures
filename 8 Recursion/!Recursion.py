@@ -267,3 +267,20 @@ def fib(n):
     return fib(n - 2) + fib(n - 1)
 
 print(fib(8))
+
+
+##############################################################
+
+# Fibonacci -- Memoization:
+
+def fib(n):
+    memo = {0:0, 1:1}  # edge cases
+    def f(x):
+        if x in memo:
+            return memo[x]
+        else:
+            memo[x] = f(x - 1) + f(x - 2)
+            return memo[x]
+    return f(n)
+
+print(fib(8))
