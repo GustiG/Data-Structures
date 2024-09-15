@@ -116,13 +116,13 @@ class BinarySearchTree:
             return None
         
         mid = (left + right) // 2
-        cur = Node(nums[mid])
+        node = Node(nums[mid])
 
-        cur.left = self.__sorted_list_to_bst(nums, left, mid - 1)
-        cur.right = self.__sorted_list_to_bst(nums, mid + 1, right)
+        node.left = self.__sorted_list_to_bst(nums, left, mid - 1)
+        node.right = self.__sorted_list_to_bst(nums, mid + 1, right)
 
-        return cur
-    
+        return node
+
 
 #  +====================================================+  
 #  |  Test code below will print output to "User logs"  |
