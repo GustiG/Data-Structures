@@ -59,11 +59,10 @@ class BinarySearchTree:
     ##################################
     def is_valid_bst(self):
         order = self.dfs_in_order()
-        for val in range(1, len(order)):
-            if order[val] <= order[val - 1]:
+        for val in range(1, len(order)): # starts at 1 to be sure
+            if order[val] <= order[val - 1]: # this is possible
                 return False
         return True
-
 
 
 
