@@ -23,6 +23,20 @@
 
 ##############################################################
 
+# def sum_digits(n):
+#     if n == 0:
+#         return 0
+    
+#     last_digit = n % 10
+#     remaining = n // 10
+   
+#     return sum_digits(remaining) + last_digit
+
+# print(sum_digits(555))
+
+
+##############################################################
+
 # def pattern_print(n):
 #     if n == 0:
 #         return
@@ -244,7 +258,17 @@ def numSum(n):
 print(numSum(10))
 '''
 
-# made the above function without recursion because it's great:
+##############################################################
+
+# def numSum(n):
+#     if n == 0: return 0
+
+#     return n + numSum(n - 1)
+
+# print(numSum(20))
+
+# |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+# made the below function without recursion because it's great:
 '''
 def numSum(n):
     half = n // 2
