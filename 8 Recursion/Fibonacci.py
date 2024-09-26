@@ -1,7 +1,7 @@
             # FIBONACCI number in different ways
 
 
-# 1  Naive Recursion:                    Time: O(2^n) | Space: O(n)  
+# 1  Naive Recursion:                    Time: O(2^n) | Space: O(n)
 
 def fib(n):
     if n < 2: return n
@@ -10,7 +10,7 @@ def fib(n):
 print(1, '->', fib(11))
 ###################################################################
 
-# 2 Memoization:                          Time: O(n) | Space: O(n)
+# 2 Memoization:                           Time: O(n) | Space: O(n)
 
 def fib2(n):
     memo = {}
@@ -23,7 +23,7 @@ def fib2(n):
 print(2, '->', fib2(11))
 ###################################################################
 
-# 3 Tabulation:                          Time: O(n) | Space: O(n)
+# 3 Tabulation:                            Time: O(n) | Space: O(n)
 
 def fib3(n):
     if n < 2: return n
@@ -36,7 +36,7 @@ def fib3(n):
 print(3, '->', fib3(11))
 ###################################################################
 
-# 4 Bottom up optimized for space         Time: O(n) | Space: O(1)
+# 4 Bottom up optimized for space          Time: O(n) | Space: O(1)
 
 def fib4(n):
     if n < 2: return n
@@ -56,4 +56,4 @@ def fib5(n):
     golden_ratio = (1 + (5 ** 0.5)) / 2
     return int(round((golden_ratio ** n) / (5 ** 0.5)))
 
-print(5,'->', fib5(11))
+print(5, '->', fib5(11))
