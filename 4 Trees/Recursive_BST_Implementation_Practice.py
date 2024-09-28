@@ -1966,9 +1966,9 @@ class BinarySearchTree:
         def traverse(node):
             if node.left:
                 traverse(node.left)
-            results.append(node.value)
             if node.right:
                 traverse(node.right)
+            results.append(node.value)
         traverse(self.root)
         return results
 
