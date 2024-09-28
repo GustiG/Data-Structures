@@ -1849,7 +1849,7 @@ print(my_tree.root.left.value)
 ###############################################################
 ###############################################################
 
-#'''
+'''
 class Node:
     def __init__(self, value):
         self.value = value
@@ -1997,15 +1997,163 @@ my_tree.r_insert(82)
 
 print(my_tree.r_contains(47))
 print(my_tree.root.left.value)
-print(my_tree.BFS())    # prints in the order the values were added
+print(my_tree.BFS())    # prints by row starting at the root
 print(my_tree.dfs_pre_order()) # prints by dfs rules order -- 
-# starts with one branch, gets both leaves and moves to the next
+# starts from the root, gets down to the leaves
 print(my_tree.dfs_post_order()) # prints from the leaves to the root
 print(my_tree.dfs_in_order()) # prints in ascending order
 my_tree.delete_node(21)
 print(my_tree.root.left.value)
-#'''
+'''
 
 ###############################################################
 ###############################################################
 ###############################################################
+
+#'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left  = None
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+    
+    def __r_contains(self, node, value):
+        if not node: 
+            return False
+        if value == node.value:
+            return True
+        if value < node.value:
+            return self.__r_contains(node.left, value)
+        if value > node.value:
+            return self.__r_contains(node.right, value)
+        
+
+    def r_contains(self, value):
+        return self.__r_contains(self.root, value)
+    
+
+    def __r_insert(self, node, value):
+        if not node:
+            return Node(value)
+        if value < node.value:
+            node.left = self.__r_insert(node.left, value)
+        if value > node.value:
+            node.right = self.__r_insert(node.right, value)
+        return node
+    
+
+    def r_insert(self, value):
+        if not self.root:
+            self.root = Node(value)
+        return self.__r_insert(self.root, value)
+    
+
+    def __delete_node(self, node, value):
+        if not node:
+            return None
+        if value < node.value:
+            node.left = self.__delete_node(node.left, value)
+        elif value > node.value:
+            node.right = self.__delete_node(node.right, value)
+        else:
+            if not node.left and not node.right:
+                return None
+            elif not node.left:
+                node = node.right
+            elif not node.right:
+                node = node.left
+            else:
+                subtree_min = self.min_val(node.right)
+                node.value = subtree_min
+                node.right =\
+                      self.__delete_node(node.right, subtree_min)
+        return node
+    
+
+    def delete_node(self, value):
+        return self.__delete_node(self.root, value)
+    
+
+    def min_val(self, node):
+        while node.left:
+            node = node.left
+        return node.value
+
+
+    def BST(self):
+        node = self.root
+        queue = []
+        queue.append(node)
+        results = []
+        while len(queue) > 0:
+            node = queue.pop(0)
+            results.append(node.value)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        return results
+    
+
+    def dfs_pre_order(self):
+        results = []
+        def traverse(node):
+            results.append(node.value)
+            if node.left:
+                traverse(node.left)
+            if node.right:
+                traverse(node.right)
+        traverse(self.root)
+        return results
+    
+     
+    def dfs_post_order(self):
+        results = []
+        def traverse(node):
+            if node.left:
+                traverse(node.left)
+            if node.right:
+                traverse(node.right)
+            results.append(node.value)
+        traverse(self.root)
+        return results
+
+
+    def dfs_in_order(self):
+        results = []
+        def traverse(node):
+            if node.left:
+                traverse(node.left)
+            results.append(node.value)
+            if node.right:
+                traverse(node.right)
+        traverse(self.root)
+        return results
+
+
+
+my_tree = BinarySearchTree()
+my_tree.r_insert(47)
+my_tree.r_insert(21)
+my_tree.r_insert(76)
+my_tree.r_insert(18)
+my_tree.r_insert(27)
+my_tree.r_insert(52)
+my_tree.r_insert(82)
+
+print(my_tree.r_contains(47))
+print(my_tree.root.left.value)
+print(my_tree.BST(), "-> Breadth First Search")
+print(my_tree.dfs_pre_order(), "-> Depth F. S. Pre Order")
+print(my_tree.dfs_post_order(), "-> Depth F. S. Post Order")
+print(my_tree.dfs_in_order(), "-> DFS in order (ascending)")
+my_tree.delete_node(21)
+print(my_tree.root.left.value)
+
+#'''
