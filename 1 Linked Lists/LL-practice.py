@@ -6478,6 +6478,8 @@ class LinkedList:
             temp = temp.next
         self.tail = prev
         self.tail.next = None
+        if self.length == 0:
+            self.head = None
         self.length -= 1
         return temp
     
@@ -6500,6 +6502,9 @@ class LinkedList:
         temp = self.head
         self.head = self.head.next
         temp = None
+        if self.length == 0:
+            self.head = None
+            self.tail = None
         self.length -= 1
         return temp
     
