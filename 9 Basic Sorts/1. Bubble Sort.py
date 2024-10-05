@@ -1,4 +1,5 @@
-                # Time complexity: O(n^2) : worst case, if the list is reversed
+    #   Bubble Sort                     Space complexity: O(1)
+    # Time complexity: O(n^2) : worst case, if the list is reversed
 '''
 def bubble_sort(my_list):
     for i in range(len(my_list) -1, 0, -1):

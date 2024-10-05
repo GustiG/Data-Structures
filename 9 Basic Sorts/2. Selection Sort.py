@@ -1,4 +1,5 @@
-'''
+#           SELECTION SORT     Time complexity: O(n^2) | Space: O(1)
+'''         
 def selection_sort(my_list):
     for i in range(len(my_list) -1):
         min_index = i
