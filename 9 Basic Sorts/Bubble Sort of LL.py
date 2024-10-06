@@ -102,17 +102,18 @@ class LinkedList:
     #                               #
     #################################
     def bubble_sort(self):
-        if self.length < 2: return
-        swapped = True
-        while swapped:
-            swapped = False
+        if self.length < 2: 
+            return
+        sorted_until = None
+        while sorted_until != self.head:
             current = self.head
-            while current and current.next:
+            while current.next != sorted_until:
                 if current.value > current.next.value:
                     current.value, current.next.value =\
                     current.next.value, current.value
-                    swapped = True
                 current = current.next
+            sorted_until = current
+        
         
 
 
